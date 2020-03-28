@@ -1,0 +1,8 @@
+/* tailwind directives: callable functions from css */
+/* these import tailwind styles */
+
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
