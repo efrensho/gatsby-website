@@ -1,4 +1,6 @@
 /* tailwind directives: callable functions from css */
+
+
 /* these import tailwind styles */
 
 @tailwind base;
@@ -6,3 +8,21 @@
 @tailwind components;
 
 @tailwind utilities;
+
+
+.btn{
+    @apply bg-blue-700 text-white rounded border-blue-700 py-2 px-4 border-b-4;
+ }
+
+ .repos-list{
+    columns: 3;
+    -moz-columns: 3;
+    /* makes a division line */
+    column-rule: 1px solid;
+    /* conainter space top and botton */
+    @apply py-4;
+ }
+
+ .repos-list li{
+    break-inside: avoid-column;
+ }
