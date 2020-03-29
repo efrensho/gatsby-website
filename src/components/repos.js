@@ -8,9 +8,23 @@ export default () => {
 
     // load repos
     useEffect(() => {
+
+        //converts again into JSON 
+        const data = sessionStorage.getItem("repos");
+
+        //when page is opened for the first time there'll be no data on SessionStorage, hence the if
+        let myRepos;
+        if (data) {
+            myRepos = JSON.parse(data);
+            //myRepos = myRepos.slice(1, 13);     //cuts the list of repos showed
+            return setRepos(myRepos);
+        }
+
         async function fetchRepos() {
-            const response = await fetch("https://api.github.com/users/efrensho/repos"); // solicitud para los repos
-            let myRepos = await response.json()     // retorna el cuerpo de solicitud en formato json
+            const response = await fetch("https://api.github.com/users/efrensho/repos"); // repo request
+            let myRepos = await response.json()     // returns request and converts into a JSON file
+
+            sessionStorage.setItem("repos", JSON.stringify(myRepos));  //Stores GH-API requests in sessionStorage as a string
 
             setRepos(myRepos);
         }
