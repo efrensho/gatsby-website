@@ -1,3 +1,5 @@
+// not necessary anymore if fetching directly from github
+
 export default [
     {
         "id": 250713497,
